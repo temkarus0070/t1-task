@@ -13,6 +13,7 @@ import java.util.Map;
 
 public interface FrequencyApi {
 
+
     @PostMapping
     @Operation(description = "Вычисление частоты символов в тексте",
                responses = {@ApiResponse(responseCode = "200", content = @Content(examples = {@ExampleObject(value = """
@@ -40,3 +41,5 @@ public interface FrequencyApi {
                                 description = "Ошибка при вводе данных")})
     Map<Character, Integer> getCharsFrequency(@RequestBody FrequencyDto frequencyDto);
 }
+
+
