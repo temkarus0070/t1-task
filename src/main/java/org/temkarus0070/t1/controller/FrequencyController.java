@@ -1,21 +1,20 @@
 package org.temkarus0070.t1.controller;
 
 import lombok.AllArgsConstructor;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
+import org.temkarus0070.t1.models.FrequencyDto;
 import org.temkarus0070.t1.service.FrequencyService;
 
 import java.util.Map;
 
-@RestController
 @AllArgsConstructor
-public class FrequencyController {
+@RestController
+public class FrequencyController implements FrequencyApi {
 
     private FrequencyService frequencyService;
 
-    @PostMapping
-    public Map<Character, Integer> getCharsFrequency(@RequestBody String str) {
-        return frequencyService.getCharacterFrequency(str);
+
+    public Map<Character, Integer> getCharsFrequency(FrequencyDto frequencyDto) {
+        return frequencyService.getCharacterFrequency(frequencyDto.getStr());
     }
 }
