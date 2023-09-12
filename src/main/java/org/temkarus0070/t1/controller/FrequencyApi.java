@@ -5,6 +5,7 @@ import io.swagger.v3.oas.annotations.media.Content;
 import io.swagger.v3.oas.annotations.media.ExampleObject;
 import io.swagger.v3.oas.annotations.media.Schema;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;
+import jakarta.validation.Valid;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.temkarus0070.t1.models.FrequencyDto;
@@ -39,7 +40,7 @@ public interface FrequencyApi {
                                                                                                                                            "path": "/"}
                                                                                                                 """)),
                                 description = "Ошибка при вводе данных")})
-    Map<Character, Integer> getCharsFrequency(@RequestBody FrequencyDto frequencyDto);
+    Map<Character, Integer> getCharsFrequency(@RequestBody @Valid FrequencyDto frequencyDto);
 }
 
 
